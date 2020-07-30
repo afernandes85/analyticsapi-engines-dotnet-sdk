@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <Reference Include="FactSet.AnalyticsAPI.Engines">
-      <HintPath>..\..\..\GeneratedSDK\src\FactSet.AnalyticsAPI.Engines\bin\Debug\netstandard2.0\FactSet.AnalyticsAPI.Engines.dll</HintPath>
+      <HintPath>..\..\..\GeneratedSDK\src\FactSet.AnalyticsAPI.Engines\bin\Release\netstandard2.0\FactSet.AnalyticsAPI.Engines.dll</HintPath>
     </Reference>
   </ItemGroup>
 
