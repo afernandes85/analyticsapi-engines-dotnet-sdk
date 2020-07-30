@@ -32,5 +32,8 @@ jobs:
     - name: Install dependencies and build Tests
       run: cd ${GITHUB_WORKSPACE}/Tests && dotnet restore && dotnet build --configuration Release --no-restore
 
-    - name: Run Tests
-      run: cd ${GITHUB_WORKSPACE}/Tests && dotnet test --no-restore --verbosity normal
+    # - name: Run Tests
+    #   run: cd ${GITHUB_WORKSPACE}/Tests && dotnet test --no-restore --verbosity normal
+
+    - name: Git status
+      run: cd ${GITHUB_WORKSPACE} && git status
