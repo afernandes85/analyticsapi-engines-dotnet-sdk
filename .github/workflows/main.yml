@@ -22,7 +22,7 @@ jobs:
 
     - name: Generate SDK using Open API Generator Custom Docker image
       run: |
-        docker run --rm -v "${GITHUB_WORKSPACE}:/local" arnoldfernandes/openapi-generator-cli-custom:4.2.2 generate --generator-name CustomPythonClientCodegen --input-spec /local/openapi-schema.json --output /local/GeneratedSDK --config /local/openapi-generator-config.json --http-user-agent engines-api/v2.0.0/csharp --template-dir /local/Templates --skip-validate-spec
+        docker run --rm -v "${GITHUB_WORKSPACE}:/local" arnoldfernandes/openapi-generator-cli-custom:4.2.2 generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec /local/openapi-schema.json --output /local/GeneratedSDK --config /local/openapi-generator-config.json --http-user-agent engines-api/3.0.0/csharp --template-dir /local/Templates --skip-validate-spec
 
     - name: Run a multi-line script
       run: |
