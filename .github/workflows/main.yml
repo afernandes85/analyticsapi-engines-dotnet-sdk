@@ -17,23 +17,26 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Generate SDK using Open API Generator Custom Docker image
-      run: |
-        docker run --rm -v "${GITHUB_WORKSPACE}:/local" arnoldfernandes/openapi-generator-cli-custom:4.2.2 generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec /local/openapi-schema.json --output /local/GeneratedSDK --config /local/openapi-generator-config.json --http-user-agent engines-api/3.0.0/csharp --template-dir /local/Templates --skip-validate-spec
+    # - name: Generate SDK using Open API Generator Custom Docker image
+    #   run: |
+    #     docker run --rm -v "${GITHUB_WORKSPACE}:/local" arnoldfernandes/openapi-generator-cli-custom:4.2.2 generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec /local/openapi-schema.json --output /local/GeneratedSDK --config /local/openapi-generator-config.json --http-user-agent engines-api/3.0.0/csharp --template-dir /local/Templates --skip-validate-spec
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2
     
-    - name: Install dependencies and build Generated SDK
-      run: cd ${GITHUB_WORKSPACE}/GeneratedSDK && dotnet restore && dotnet build --configuration Release --no-restore
+    - name: Build new SDK
+      run: cd Engines && dotnet build --configuration Release
         
-    - name: Install dependencies and build Tests
-      run: cd ${GITHUB_WORKSPACE}/Tests && dotnet restore && dotnet build --configuration Release --no-restore
+    - name: Build Tests
+      run: cd Tests && dotnet build --configuration Release
 
     # - name: Run Tests
-    #   run: cd ${GITHUB_WORKSPACE}/Tests && dotnet test --no-restore --verbosity normal
+    #   run: cd Tests && dotnet test --no-restore --verbosity normal
 
-    - name: Git status
-      run: cd ${GITHUB_WORKSPACE} && git status
+    - name: Build Examples
+      run: cd Tests && dotnet build --configuration Release
+
+    # - name: Git status
+    #   run: cd ${GITHUB_WORKSPACE} && git status
