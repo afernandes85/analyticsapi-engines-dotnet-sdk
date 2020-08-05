@@ -26,32 +26,34 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// The account/benchmark parameter for Vault calculation.
+    /// PubIdentifier
     /// </summary>
     [DataContract]
-    public partial class VaultIdentifier :  IEquatable<VaultIdentifier>, IValidatableObject
+    public partial class PubIdentifier :  IEquatable<PubIdentifier>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="PubIdentifier" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VaultIdentifier() { }
+        protected PubIdentifier() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="PubIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        public VaultIdentifier(string id = default(string))
+        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR or OMS..</param>
+        public PubIdentifier(string id = default(string), string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new InvalidDataException("id is a required property for VaultIdentifier and cannot be null");
+                throw new InvalidDataException("id is a required property for PubIdentifier and cannot be null");
             }
             else
             {
                 this.Id = id;
             }
 
+            this.Holdingsmode = holdingsmode;
         }
         
         /// <summary>
@@ -62,14 +64,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Holdings Mode can be B&amp;H, TBR or OMS.
+        /// </summary>
+        /// <value>Holdings Mode can be B&amp;H, TBR or OMS.</value>
+        [DataMember(Name="holdingsmode", EmitDefaultValue=false)]
+        public string Holdingsmode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VaultIdentifier {\n");
+            sb.Append("class PubIdentifier {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Holdingsmode: ").Append(Holdingsmode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,15 +100,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VaultIdentifier);
+            return this.Equals(input as PubIdentifier);
         }
 
         /// <summary>
-        /// Returns true if VaultIdentifier instances are equal
+        /// Returns true if PubIdentifier instances are equal
         /// </summary>
-        /// <param name="input">Instance of VaultIdentifier to be compared</param>
+        /// <param name="input">Instance of PubIdentifier to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VaultIdentifier input)
+        public bool Equals(PubIdentifier input)
         {
             if (input == null)
                 return false;
@@ -108,6 +118,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Holdingsmode == input.Holdingsmode ||
+                    (this.Holdingsmode != null &&
+                    this.Holdingsmode.Equals(input.Holdingsmode))
                 );
         }
 
@@ -122,6 +137,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Holdingsmode != null)
+                    hashCode = hashCode * 59 + this.Holdingsmode.GetHashCode();
                 return hashCode;
             }
         }
