@@ -40,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="PAIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        /// <param name="holdingsmode">Holdings Mode can be buyandhold, TBR or OMS..</param>
+        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR, OMS or EXT..</param>
         public PAIdentifier(string id = default(string), string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
@@ -64,9 +64,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Holdings Mode can be buyandhold, TBR or OMS.
+        /// Holdings Mode can be B&amp;H, TBR, OMS or EXT.
         /// </summary>
-        /// <value>Holdings Mode can be buyandhold, TBR or OMS.</value>
+        /// <value>Holdings Mode can be B&amp;H, TBR, OMS or EXT.</value>
         [DataMember(Name="holdingsmode", EmitDefaultValue=false)]
         public string Holdingsmode { get; set; }
 

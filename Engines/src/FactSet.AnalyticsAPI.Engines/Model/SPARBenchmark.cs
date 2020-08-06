@@ -26,40 +26,44 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// The account/benchmark parameter for Vault calculation.
+    /// SPARBenchmark
     /// </summary>
     [DataContract]
-    public partial class VaultIdentifier :  IEquatable<VaultIdentifier>, IValidatableObject
+    public partial class SPARBenchmark :  IEquatable<SPARBenchmark>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="SPARBenchmark" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VaultIdentifier() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
-        /// </summary>
-        /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        public VaultIdentifier(string id = default(string))
+        /// <param name="id">Benchmark identifier.</param>
+        /// <param name="name">Benchmark Name.</param>
+        /// <param name="identifiers">List of SPAR identifiers.</param>
+        public SPARBenchmark(string id = default(string), string name = default(string), List<SPARIdentifier> identifiers = default(List<SPARIdentifier>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new InvalidDataException("id is a required property for VaultIdentifier and cannot be null");
-            }
-            else
-            {
-                this.Id = id;
-            }
-
+            this.Id = id;
+            this.Name = name;
+            this.Identifiers = identifiers;
         }
         
         /// <summary>
-        /// User&#39;s FactSet account path OR benchmark.
+        /// Benchmark identifier
         /// </summary>
-        /// <value>User&#39;s FactSet account path OR benchmark.</value>
+        /// <value>Benchmark identifier</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Benchmark Name
+        /// </summary>
+        /// <value>Benchmark Name</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// List of SPAR identifiers
+        /// </summary>
+        /// <value>List of SPAR identifiers</value>
+        [DataMember(Name="identifiers", EmitDefaultValue=false)]
+        public List<SPARIdentifier> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +72,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VaultIdentifier {\n");
+            sb.Append("class SPARBenchmark {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,15 +96,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VaultIdentifier);
+            return this.Equals(input as SPARBenchmark);
         }
 
         /// <summary>
-        /// Returns true if VaultIdentifier instances are equal
+        /// Returns true if SPARBenchmark instances are equal
         /// </summary>
-        /// <param name="input">Instance of VaultIdentifier to be compared</param>
+        /// <param name="input">Instance of SPARBenchmark to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VaultIdentifier input)
+        public bool Equals(SPARBenchmark input)
         {
             if (input == null)
                 return false;
@@ -108,6 +114,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 );
         }
 
@@ -122,6 +139,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Identifiers != null)
+                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
                 return hashCode;
             }
         }

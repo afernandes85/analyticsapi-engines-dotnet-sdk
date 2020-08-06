@@ -1,10 +1,11 @@
-# FactSet.AnalyticsAPI.Engines.Model.VaultIdentifier
-The account/benchmark parameter for Vault calculation.
+# FactSet.AnalyticsAPI.Engines.Model.SPARBenchmark
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | User&#39;s FactSet account path OR benchmark. | 
+**Id** | **string** | Benchmark identifier | [optional] 
+**Name** | **string** | Benchmark Name | [optional] 
+**Identifiers** | [**List&lt;SPARIdentifier&gt;**](SPARIdentifier.md) | List of SPAR identifiers | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

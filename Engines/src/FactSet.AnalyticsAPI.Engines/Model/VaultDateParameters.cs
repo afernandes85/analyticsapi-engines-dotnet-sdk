@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// VaultDateParameters
+    /// The date parameters for Vault calculation
     /// </summary>
     [DataContract]
     public partial class VaultDateParameters :  IEquatable<VaultDateParameters>, IValidatableObject

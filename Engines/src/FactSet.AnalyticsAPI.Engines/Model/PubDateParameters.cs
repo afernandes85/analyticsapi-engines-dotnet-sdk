@@ -26,40 +26,49 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// The account/benchmark parameter for Vault calculation.
+    /// The date parameters for Publisher calculation.
     /// </summary>
     [DataContract]
-    public partial class VaultIdentifier :  IEquatable<VaultIdentifier>, IValidatableObject
+    public partial class PubDateParameters :  IEquatable<PubDateParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="PubDateParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VaultIdentifier() { }
+        protected PubDateParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="PubDateParameters" /> class.
         /// </summary>
-        /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        public VaultIdentifier(string id = default(string))
+        /// <param name="startdate">Calculation&#39;s start date..</param>
+        /// <param name="enddate">Calculation&#39;s end date or as of date. (required).</param>
+        public PubDateParameters(string startdate = default(string), string enddate = default(string))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "enddate" is required (not null)
+            if (enddate == null)
             {
-                throw new InvalidDataException("id is a required property for VaultIdentifier and cannot be null");
+                throw new InvalidDataException("enddate is a required property for PubDateParameters and cannot be null");
             }
             else
             {
-                this.Id = id;
+                this.Enddate = enddate;
             }
 
+            this.Startdate = startdate;
         }
         
         /// <summary>
-        /// User&#39;s FactSet account path OR benchmark.
+        /// Calculation&#39;s start date.
         /// </summary>
-        /// <value>User&#39;s FactSet account path OR benchmark.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        /// <value>Calculation&#39;s start date.</value>
+        [DataMember(Name="startdate", EmitDefaultValue=false)]
+        public string Startdate { get; set; }
+
+        /// <summary>
+        /// Calculation&#39;s end date or as of date.
+        /// </summary>
+        /// <value>Calculation&#39;s end date or as of date.</value>
+        [DataMember(Name="enddate", EmitDefaultValue=false)]
+        public string Enddate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +77,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VaultIdentifier {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class PubDateParameters {\n");
+            sb.Append("  Startdate: ").Append(Startdate).Append("\n");
+            sb.Append("  Enddate: ").Append(Enddate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,24 +100,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VaultIdentifier);
+            return this.Equals(input as PubDateParameters);
         }
 
         /// <summary>
-        /// Returns true if VaultIdentifier instances are equal
+        /// Returns true if PubDateParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of VaultIdentifier to be compared</param>
+        /// <param name="input">Instance of PubDateParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VaultIdentifier input)
+        public bool Equals(PubDateParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Startdate == input.Startdate ||
+                    (this.Startdate != null &&
+                    this.Startdate.Equals(input.Startdate))
+                ) && 
+                (
+                    this.Enddate == input.Enddate ||
+                    (this.Enddate != null &&
+                    this.Enddate.Equals(input.Enddate))
                 );
         }
 
@@ -120,8 +135,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Startdate != null)
+                    hashCode = hashCode * 59 + this.Startdate.GetHashCode();
+                if (this.Enddate != null)
+                    hashCode = hashCode * 59 + this.Enddate.GetHashCode();
                 return hashCode;
             }
         }
