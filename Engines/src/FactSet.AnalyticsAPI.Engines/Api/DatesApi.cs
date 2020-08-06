@@ -31,7 +31,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert PA dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -45,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert PA dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -58,7 +58,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert Vault dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -72,7 +72,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert Vault dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -94,7 +94,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert PA dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -108,7 +108,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert PA dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -121,7 +121,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert Vault dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -135,7 +135,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Convert Vault dates to absolute format
         /// </summary>
         /// <remarks>
-        /// This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -265,7 +265,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert PA dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -280,7 +280,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert PA dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -379,7 +379,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert PA dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -395,7 +395,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert PA dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a PA calculation.
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -496,7 +496,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -511,7 +511,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -610,7 +610,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
@@ -626,7 +626,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates to yyyymmdd format for a Vault calculation.
+        /// Convert Vault dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the &#39;API Documentation&#39; section in the developer portal.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
