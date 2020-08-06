@@ -30,7 +30,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.0.0";
+        public const string Version = "3.0.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -344,7 +344,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             String report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 2\n";
-            report += "    SDK Package Version: 3.0.0\n";
+            report += "    SDK Package Version: 3.0.1\n";
 
             return report;
         }
