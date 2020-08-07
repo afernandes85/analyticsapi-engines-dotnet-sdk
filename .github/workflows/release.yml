@@ -30,10 +30,12 @@ jobs:
       run: cd Engines && dotnet publish
 
     - name: Check directory
-      run: cd Engines/bin/Release/netcoreapp2.2/publish/ && ls -l
+      run: |
+        cd Engines/bin/Release/netstandard2.0/publish/ && ls -l
+        cd Engines/bin/Debug/netstandard2.0/publish/ && ls -l
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: FactSet.AnalyticsAPI.Engines
-        path: Engines/bin/Release/netcoreapp2.2/publish/
+        path: Engines/bin/Release/netstandard2.0/publish/
