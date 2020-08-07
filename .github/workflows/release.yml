@@ -29,8 +29,11 @@ jobs:
     - name: Publish
       run: cd Engines && dotnet publish
 
-    - name: Upload WebApp1 Build Artifact
+    - name: Check directory
+      run: cd Engines/bin/Release/netcoreapp2.2/publish/ && ls -l
+
+    - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: FactSet.AnalyticsAPI.Engines
-        path: Engines/bin/Debug/netcoreapp2.2/publish/
+        path: Engines/bin/Release/netcoreapp2.2/publish/

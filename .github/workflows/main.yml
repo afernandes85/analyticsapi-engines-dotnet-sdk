@@ -5,8 +5,8 @@ env:
   ANALYTICS_API_PASSWORD: ${{ secrets.ANALYTICS_API_PASSWORD }} 
 
 on:
-  push:
-    branches: [ master ]
+  # push:
+  #   branches: [ master ]
   pull_request:
     branches: [ master ]
 
