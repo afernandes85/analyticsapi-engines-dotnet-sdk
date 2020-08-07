@@ -29,12 +29,8 @@ jobs:
     - name: Publish
       run: cd Engines && dotnet publish
 
-    - name: Check directory
-      run: |
-        cd Engines && ls -l
-
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: FactSet.AnalyticsAPI.Engines
-        path: Engines/src/bin/Release/netstandard2.0/publish/
+        path: /home/runner/work/analyticsapi-engines-dotnet-sdk/analyticsapi-engines-dotnet-sdk/Engines/src/FactSet.AnalyticsAPI.Engines/bin/Debug/netstandard2.0/publish/
