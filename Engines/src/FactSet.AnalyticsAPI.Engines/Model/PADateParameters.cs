@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// PADateParameters
+    /// The date parameters for PA calculation.
     /// </summary>
     [DataContract]
     public partial class PADateParameters :  IEquatable<PADateParameters>, IValidatableObject

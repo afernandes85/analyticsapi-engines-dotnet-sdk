@@ -68,7 +68,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new AccountsApi(Configuration.Default);
-            var path = path_example;  // string | The directory to get the accounts and sub-directories in
+            var path = path_example;  // string | The directory to get the accounts and sub-directories in (default to "")
 
             try
             {
@@ -114,12 +114,23 @@ Class | Method | HTTP request | Description
 *DatesApi* | [**ConvertPADatesToAbsoluteFormat**](docs/DatesApi.md#convertpadatestoabsoluteformat) | **GET** /analytics/lookups/v2/engines/pa/dates | Convert PA dates to absolute format
 *DatesApi* | [**ConvertVaultDatesToAbsoluteFormat**](docs/DatesApi.md#convertvaultdatestoabsoluteformat) | **GET** /analytics/lookups/v2/engines/vault/dates | Convert Vault dates to absolute format
 *DocumentsApi* | [**GetPA3Documents**](docs/DocumentsApi.md#getpa3documents) | **GET** /analytics/lookups/v2/engines/pa/documents/{path} | Get PA3 documents and sub-directories in a directory
+*DocumentsApi* | [**GetPubDocuments**](docs/DocumentsApi.md#getpubdocuments) | **GET** /analytics/lookups/v2/engines/pub/documents/{path} | Gets Publisher documents and sub-directories in a directory
 *DocumentsApi* | [**GetSPAR3Documents**](docs/DocumentsApi.md#getspar3documents) | **GET** /analytics/lookups/v2/engines/spar/documents/{path} | Gets SPAR3 documents and sub-directories in a directory
 *DocumentsApi* | [**GetVaultDocuments**](docs/DocumentsApi.md#getvaultdocuments) | **GET** /analytics/lookups/v2/engines/vault/documents/{path} | Get Vault documents and sub-directories in a directory
 *FrequenciesApi* | [**GetPAFrequencies**](docs/FrequenciesApi.md#getpafrequencies) | **GET** /analytics/lookups/v2/engines/pa/frequencies | Get PA frequencies
 *FrequenciesApi* | [**GetSPARFrequencies**](docs/FrequenciesApi.md#getsparfrequencies) | **GET** /analytics/lookups/v2/engines/spar/frequencies | Get SPAR frequencies
 *FrequenciesApi* | [**GetVaultFrequencies**](docs/FrequenciesApi.md#getvaultfrequencies) | **GET** /analytics/lookups/v2/engines/vault/frequencies | Get Vault frequencies
 *GroupsApi* | [**GetPAGroups**](docs/GroupsApi.md#getpagroups) | **GET** /analytics/lookups/v2/engines/pa/groups | Get PA groups
+*PACalculationsApi* | [**CancelPACalculationById**](docs/PACalculationsApi.md#cancelpacalculationbyid) | **DELETE** /analytics/engines/pa/v2/calculations/{id} | Cancel PA calculation by id
+*PACalculationsApi* | [**GetPACalculationById**](docs/PACalculationsApi.md#getpacalculationbyid) | **GET** /analytics/engines/pa/v2/calculations/{id} | Get PA calculation by id
+*PACalculationsApi* | [**RunPACalculation**](docs/PACalculationsApi.md#runpacalculation) | **POST** /analytics/engines/pa/v2/calculations | Run PA Calculation
+*SPARBenchmarkApi* | [**GetSPARBenchmarkById**](docs/SPARBenchmarkApi.md#getsparbenchmarkbyid) | **GET** /analytics/lookups/v2/engines/spar/benchmarks | Get SPAR benchmark details
+*SPARCalculationsApi* | [**CancelSPARCalculationById**](docs/SPARCalculationsApi.md#cancelsparcalculationbyid) | **DELETE** /analytics/engines/spar/v2/calculations/{id} | Cancel SPAR calculation
+*SPARCalculationsApi* | [**GetSPARCalculationById**](docs/SPARCalculationsApi.md#getsparcalculationbyid) | **GET** /analytics/engines/spar/v2/calculations/{id} | Get SPAR calculation by id
+*SPARCalculationsApi* | [**RunSPARCalculation**](docs/SPARCalculationsApi.md#runsparcalculation) | **POST** /analytics/engines/spar/v2/calculations | Run SPAR Calculation
+*VaultCalculationsApi* | [**CancelVaultCalculationById**](docs/VaultCalculationsApi.md#cancelvaultcalculationbyid) | **DELETE** /analytics/engines/vault/v2/calculations/{id} | Cancel Vault calculation by id
+*VaultCalculationsApi* | [**GetVaultCalculationById**](docs/VaultCalculationsApi.md#getvaultcalculationbyid) | **GET** /analytics/engines/vault/v2/calculations/{id} | Get Vault calculation by id
+*VaultCalculationsApi* | [**RunVaultCalculation**](docs/VaultCalculationsApi.md#runvaultcalculation) | **POST** /analytics/engines/vault/v2/calculations | Run Vault Calculation
 *UtilityApi* | [**getByUrl**](docs/UtilityApi.md#getByUrl) | **GET** {url} | Get by url
 
 <a name="documentation-for-models"></a>
@@ -148,6 +159,10 @@ Class | Method | HTTP request | Description
  - [Model.PAComponent](docs/PAComponent.md)
  - [Model.PADateParameters](docs/PADateParameters.md)
  - [Model.PAIdentifier](docs/PAIdentifier.md)
+ - [Model.PubCalculationParameters](docs/PubCalculationParameters.md)
+ - [Model.PubDateParameters](docs/PubDateParameters.md)
+ - [Model.PubIdentifier](docs/PubIdentifier.md)
+ - [Model.SPARBenchmark](docs/SPARBenchmark.md)
  - [Model.SPARCalculationParameters](docs/SPARCalculationParameters.md)
  - [Model.SPARDateParameters](docs/SPARDateParameters.md)
  - [Model.SPARIdentifier](docs/SPARIdentifier.md)

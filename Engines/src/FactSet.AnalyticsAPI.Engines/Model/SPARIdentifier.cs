@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// SPARIdentifier
+    /// The account/benchmark parameter for SPAR calculation.
     /// </summary>
     [DataContract]
     public partial class SPARIdentifier :  IEquatable<SPARIdentifier>, IValidatableObject

@@ -32,8 +32,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class CalculationUnitStatus :  IEquatable<CalculationUnitStatus>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// The status of calculation unit.
         /// </summary>
+        /// <value>The status of calculation unit.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -70,40 +71,35 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of calculation unit.
         /// </summary>
+        /// <value>The status of calculation unit.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationUnitStatus" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="points">points.</param>
-        /// <param name="error">error.</param>
-        /// <param name="result">result.</param>
-        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), int points = default(int), string error = default(string), string result = default(string))
+        /// <param name="status">The status of calculation unit..</param>
+        /// <param name="error">The error in a calculation unit..</param>
+        /// <param name="result">The result URL of the calculation..</param>
+        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), string error = default(string), string result = default(string))
         {
             this.Status = status;
-            this.Points = points;
             this.Error = error;
             this.Result = result;
         }
         
         /// <summary>
-        /// Gets or Sets Points
+        /// The error in a calculation unit.
         /// </summary>
-        [DataMember(Name="points", EmitDefaultValue=false)]
-        public int Points { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Error
-        /// </summary>
+        /// <value>The error in a calculation unit.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Result
+        /// The result URL of the calculation.
         /// </summary>
+        /// <value>The result URL of the calculation.</value>
         [DataMember(Name="result", EmitDefaultValue=false)]
         public string Result { get; set; }
 
@@ -116,7 +112,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class CalculationUnitStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
@@ -158,10 +153,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.Points == input.Points ||
-                    this.Points.Equals(input.Points)
-                ) && 
-                (
                     this.Error == input.Error ||
                     (this.Error != null &&
                     this.Error.Equals(input.Error))
@@ -183,7 +174,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Points.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Result != null)

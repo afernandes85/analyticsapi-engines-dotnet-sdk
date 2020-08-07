@@ -1,10 +1,11 @@
-# FactSet.AnalyticsAPI.Engines.Model.VaultIdentifier
-The account/benchmark parameter for Vault calculation.
+# FactSet.AnalyticsAPI.Engines.Model.PubCalculationParameters
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | User&#39;s FactSet account path OR benchmark. | 
+**Document** | **string** | The Publisher Engine document to analyze. | 
+**Account** | [**PubIdentifier**](PubIdentifier.md) |  | 
+**Dates** | [**PubDateParameters**](PubDateParameters.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
