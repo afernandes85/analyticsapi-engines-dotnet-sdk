@@ -1,12 +1,10 @@
-name: CI
+name: Build and Test
 
 env:
   ANALYTICS_API_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_USERNAME_SERIAL }}
   ANALYTICS_API_PASSWORD: ${{ secrets.ANALYTICS_API_PASSWORD }} 
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
