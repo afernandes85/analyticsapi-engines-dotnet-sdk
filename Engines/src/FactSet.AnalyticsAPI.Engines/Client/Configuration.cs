@@ -95,7 +95,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "engines-api/3.0.0/csharp";
+            UserAgent = "engines-api/3.0.1/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
