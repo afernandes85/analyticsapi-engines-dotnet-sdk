@@ -1,4 +1,4 @@
-![FactSet logo](https://www.factset.com/hubfs/Assets/images/factset-logo.svg)
+![FactSet logo](https://www.factset.com/hubfs/Assets/images/factset-logo.svg =290x56)
 
 # Analytics API Engines .NET SDK
 
