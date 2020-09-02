@@ -1,8 +1,8 @@
-![FactSet logo](https://www.factset.com/hubfs/Assets/images/factset-logo.svg =290x56)
+<img alt="FactSet" src="https://www.factset.com/hubfs/Assets/images/factset-logo.svg" height="56" width="290">
 
 # Analytics API Engines .NET SDK
 
-[![build](https://img.shields.io/github/workflow/status/afernandes/analyticsapi-engines-dotnet-sdk/CI)](https://github.com/afernandes85/analyticsapi-engines-dotnet-sdk/actions?query=workflow%3A%22CI%22)
+[![build](https://img.shields.io/github/workflow/status/afernandes85/analyticsapi-engines-dotnet-sdk/CI)](https://github.com/afernandes85/analyticsapi-engines-dotnet-sdk/actions?query=workflow%3ACI)
 [![nuget](https://img.shields.io/nuget/v/FactSet.AnalyticsAPI.Engines)](https://www.nuget.org/packages/FactSet.AnalyticsAPI.Engines)
 ![API version](https://img.shields.io/badge/API-v2-blue)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
