@@ -25,23 +25,31 @@ Use this library to integrate with FactSet's Analytics APIs. Below APIs are supp
 
 ## Installation
 
-### Install with Package Manager Console
+* Install with Package Manager Console:
 
-```sh
-Install-Package FactSet.AnalyticsAPI.Engines
-```
+  ```sh
+  Install-Package FactSet.AnalyticsAPI.Engines
+  ```
 
-### Install with NuGet
+* Install with NuGet:
 
-```sh
-nuget install FactSet.AnalyticsAPI.Engines
-```
+  ```sh
+  nuget install FactSet.AnalyticsAPI.Engines
+  ```
 
-### Install with .NET Core
+* Install with .NET Core:
 
-```sh
-dotnet add package FactSet.AnalyticsAPI.Engines
-```
+  ```sh
+  dotnet add package FactSet.AnalyticsAPI.Engines
+  ```
+
+* Alternatively, download or clone this repository, build the SDK and add it as reference to your project:
+
+  ```sh
+  git clone https://github.com/afernandes85/analyticsapi-engines-dotnet-sdk.git
+  cd Engines
+  dotnet build FactSet.AnalyticsAPI.Engines
+  ```
 
 ## Usage
 
@@ -72,4 +80,4 @@ dotnet test
 ## Contributing
 
 * Files in [Engines](Engines) are auto-generated and should not be manually edited here. Refer [Analytics API Engines SDK Generator](https://github.com/afernandes85/analyticsapi-engines-sdk-generator) for instructions on how to modify these files.
-* [Examples](Examples) and [Tests](Tests) projects are open to enhancements and bug fixes. Please create a pull requests with the proposed changes. 
+* [Examples](Examples) and [Tests](Tests) projects are open to enhancements and bug fixes. Please create a pull requests with the proposed changes.
