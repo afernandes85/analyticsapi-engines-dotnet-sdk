@@ -23,10 +23,14 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string SPARBenchmarkRussellPrefix = "RUSSELL";
         public const string SPARBenchmarkRussellReturnType = "GTR";
         public const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
-        public const string VaultDefaultAccount = "CLIENT:/ANALYTICS/DATA/NORDIC_EQUITY.ACCT";
-        public const string VaultDefaultDocument = "PA3_DOCUMENTS:DEFAULT";
-        public const string VaultEndDate = "LAST_REPOSITORY";
+        public const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
+        public const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
+        public const string VaultEndDate = "20180331";
         public const string VaultFrequency = "Monthly";
-        public const string VaultStartDate = "FIRST_REPOSITORY";
+        public const string VaultStartDate = "20180101";
+        public const string PubDocumentName = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
+        public const string PubAccountName = "BENCH:SP50";
+        public const string PubStartDate = "-1M";
+        public const string PubEndDate = "0M";
     }
 }

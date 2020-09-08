@@ -15,7 +15,11 @@ Functionality Additions:
 * Interactive endpoints for PA, SPAR and Vault APIs
 
 Bug Fixes:
-* No changes3.0.0 (12/02/2019)
+* No changes
+
+-----------------------
+
+3.0.0 (12/02/2019)
 
 Supported API versions:
 * v2

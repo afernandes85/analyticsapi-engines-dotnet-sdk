@@ -13,7 +13,7 @@ using Google.Protobuf;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class SPAREngineExample
+    public class SPAREngineInteractiveExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
@@ -31,58 +31,63 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         {
             try
             {
-                var calculationParameters = new Calculation
+                // Build SPAR Engine calculation parameters
+                var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
+
+                var componentsResponse = componentsApi.GetSPARComponentsWithHttpInfo(SPARDefaultDocument);
+
+                var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
+                Console.WriteLine($"SPAR Component Id : {sparComponentId}");
+                var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+                var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
+                var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+
+                var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
+
+                var calculationApi = new SPARCalculationsApi(GetEngineApiConfiguration());
+
+                var runCalculationResponse = calculationApi.RunSPARCalculationWithHttpInfo(sparCalculation);
+
+                var calculationId = string.Empty;
+
+                while (runCalculationResponse.StatusCode == HttpStatusCode.Accepted)
                 {
-                    Spar = new Dictionary<string, SPARCalculationParameters> { { "1", GetSparCalculationParameters() } }
-                };
-
-                var calculationApi = new CalculationsApi(GetEngineApiConfiguration());
-
-                var runCalculationResponse = calculationApi.RunCalculationWithHttpInfo(calculationParameters);
-
-                var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
-                Console.WriteLine("Calculation Id: " + calculationId);
-                ApiResponse<CalculationStatus> getStatus = null;
-
-                while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
-                {
-                    if (getStatus != null)
+                    if (string.IsNullOrWhiteSpace(calculationId))
                     {
-                        if (getStatus.Headers.ContainsKey("Cache-Control"))
-                        {
-                            var maxAge = getStatus.Headers["Cache-Control"][0];
-                            if (string.IsNullOrWhiteSpace(maxAge))
-                            {
-                                Console.WriteLine("Sleeping for 2 seconds");
-                                // Sleep for at least 2 seconds.
-                                Thread.Sleep(2000);
-                            }
-                            else
-                            {
-                                var age = int.Parse(maxAge.Replace("max-age=", ""));
-                                Console.WriteLine($"Sleeping for {age} seconds");
-                                Thread.Sleep(age * 1000);
-                            }
-                        }
+                        runCalculationResponse.Headers.TryGetValue("Location", out var location);
+                        calculationId = location?[0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
                     }
 
-                    getStatus = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
-                }
-                Console.WriteLine("Calculation Completed");
-
-
-                foreach (var sparCalculationParameters in getStatus.Data.Spar)
-                {
-                    if (sparCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (runCalculationResponse.Headers.ContainsKey("Cache-Control") &&
+                        runCalculationResponse.Headers["Cache-Control"][0] is var maxAge &&
+                        !string.IsNullOrWhiteSpace(maxAge))
                     {
-                        PrintResult(sparCalculationParameters);
+                        var age = int.Parse(maxAge.Replace("max-age=", ""));
+                        Console.WriteLine($"Sleeping for {age} seconds");
+                        Thread.Sleep(age * 1000);
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {sparCalculationParameters.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {sparCalculationParameters.Value.Error}");
+                        Console.WriteLine("Sleeping for 2 seconds");
+                        // Sleep for at least 2 seconds.
+                        Thread.Sleep(2000);
                     }
+
+                    runCalculationResponse = calculationApi.GetSPARCalculationByIdWithHttpInfo(calculationId);
                 }
+
+                var jpSettings = JsonParser.Settings.Default;
+                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
+                var package = jp.Parse<Package>(runCalculationResponse.Data.ToString());
+
+                Console.WriteLine($"Calculation Id : {calculationId} Succeeded!!!");
+                Console.WriteLine("/****************************************************************/");
+
+                // To convert package to 2D tables.
+                var tables = package.ConvertToTableFormat();
+                Console.WriteLine(tables[0]);
+
+                Console.WriteLine("/****************************************************************/");
 
                 Console.ReadKey();
             }
@@ -154,12 +159,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 // To convert package to 2D tables.
                 var tables = package.ConvertToTableFormat();
                 Console.WriteLine(tables[0]);
-
-                // Uncomment the following lines to generate an Excel file
-                // foreach (var table in tables)
-                // {
-                //     File.WriteAllText($"{Guid.NewGuid():N}.csv", table.ToString());
-                // }
 
                 Console.WriteLine("/****************************************************************/");
             }
