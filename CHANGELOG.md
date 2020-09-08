@@ -1,4 +1,21 @@
-3.0.0 (12/02/2019)
+4.0.0 (08/27/2020)
+
+Supported API versions:
+* v2
+
+Summary:
+* Adding support for new features
+
+Breaking changes:
+* Additional parameter in calculation object constructor
+
+Functionality Additions:
+* Publisher API calculation and document lookup
+* New componentdetail parameter for PA and Vault calculation
+* Interactive endpoints for PA, SPAR and Vault APIs
+
+Bug Fixes:
+* No changes3.0.0 (12/02/2019)
 
 Supported API versions:
 * v2
