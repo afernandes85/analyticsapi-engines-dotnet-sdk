@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -238,16 +238,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (id != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "id", id))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -310,16 +301,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            if (id != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "id", id))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (Basic) required
             // http basic authentication required

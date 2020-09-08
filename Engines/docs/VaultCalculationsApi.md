@@ -31,12 +31,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new VaultCalculationsApi(Configuration.Default);
+            var apiInstance = new VaultCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Run Calculation endpoint
 
             try
@@ -109,12 +110,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new VaultCalculationsApi(Configuration.Default);
+            var apiInstance = new VaultCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Run Calculation endpoint
 
             try
@@ -189,12 +191,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new VaultCalculationsApi(Configuration.Default);
+            var apiInstance = new VaultCalculationsApi(config);
             var vaultCalculationParameters = new VaultCalculationParameters(); // VaultCalculationParameters |  (optional) 
 
             try

@@ -33,12 +33,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ComponentsApi(Configuration.Default);
+            var apiInstance = new ComponentsApi(config);
             var id = id_example;  // string | Unique identifier for a PA component
 
             try
@@ -114,12 +115,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ComponentsApi(Configuration.Default);
+            var apiInstance = new ComponentsApi(config);
             var document = document_example;  // string | Document Name
 
             try
@@ -195,12 +197,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ComponentsApi(Configuration.Default);
+            var apiInstance = new ComponentsApi(config);
             var document = document_example;  // string | Document Name
 
             try
@@ -276,12 +279,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ComponentsApi(Configuration.Default);
+            var apiInstance = new ComponentsApi(config);
             var id = id_example;  // string | Unique identifier for a vault component
 
             try
@@ -357,12 +361,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ComponentsApi(Configuration.Default);
+            var apiInstance = new ComponentsApi(config);
             var document = document_example;  // string | Document Name
 
             try

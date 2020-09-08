@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -40,19 +40,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="PubIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR or OMS..</param>
+        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR, OMS or EXT..</param>
         public PubIdentifier(string id = default(string), string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new InvalidDataException("id is a required property for PubIdentifier and cannot be null");
-            }
-            else
-            {
-                this.Id = id;
-            }
-
+            this.Id = id ?? throw new ArgumentNullException("id is a required property for PubIdentifier and cannot be null");
             this.Holdingsmode = holdingsmode;
         }
         
@@ -64,9 +56,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Holdings Mode can be B&amp;H, TBR or OMS.
+        /// Holdings Mode can be B&amp;H, TBR, OMS or EXT.
         /// </summary>
-        /// <value>Holdings Mode can be B&amp;H, TBR or OMS.</value>
+        /// <value>Holdings Mode can be B&amp;H, TBR, OMS or EXT.</value>
         [DataMember(Name="holdingsmode", EmitDefaultValue=false)]
         public string Holdingsmode { get; set; }
 
