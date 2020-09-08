@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -45,35 +45,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PubCalculationParameters(string document = default(string), PubIdentifier account = default(PubIdentifier), PubDateParameters dates = default(PubDateParameters))
         {
             // to ensure "document" is required (not null)
-            if (document == null)
-            {
-                throw new InvalidDataException("document is a required property for PubCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Document = document;
-            }
-
+            this.Document = document ?? throw new ArgumentNullException("document is a required property for PubCalculationParameters and cannot be null");
             // to ensure "account" is required (not null)
-            if (account == null)
-            {
-                throw new InvalidDataException("account is a required property for PubCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Account = account;
-            }
-
+            this.Account = account ?? throw new ArgumentNullException("account is a required property for PubCalculationParameters and cannot be null");
             // to ensure "dates" is required (not null)
-            if (dates == null)
-            {
-                throw new InvalidDataException("dates is a required property for PubCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Dates = dates;
-            }
-
+            this.Dates = dates ?? throw new ArgumentNullException("dates is a required property for PubCalculationParameters and cannot be null");
         }
         
         /// <summary>

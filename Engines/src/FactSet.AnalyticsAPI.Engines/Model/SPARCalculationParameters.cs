@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -46,15 +46,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters))
         {
             // to ensure "componentid" is required (not null)
-            if (componentid == null)
-            {
-                throw new InvalidDataException("componentid is a required property for SPARCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Componentid = componentid;
-            }
-
+            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for SPARCalculationParameters and cannot be null");
             this.Accounts = accounts;
             this.Benchmark = benchmark;
             this.Dates = dates;

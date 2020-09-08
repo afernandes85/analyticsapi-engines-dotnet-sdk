@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -82,11 +82,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="status">The status of calculation unit..</param>
         /// <param name="error">The error in a calculation unit..</param>
         /// <param name="result">The result URL of the calculation..</param>
-        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), string error = default(string), string result = default(string))
+        /// <param name="progress">The progress of the calculation unit..</param>
+        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), string error = default(string), string result = default(string), string progress = default(string))
         {
             this.Status = status;
             this.Error = error;
             this.Result = result;
+            this.Progress = progress;
         }
         
         /// <summary>
@@ -104,6 +106,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Result { get; set; }
 
         /// <summary>
+        /// The progress of the calculation unit.
+        /// </summary>
+        /// <value>The progress of the calculation unit.</value>
+        [DataMember(Name="progress", EmitDefaultValue=false)]
+        public string Progress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +123,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,6 +171,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Result == input.Result ||
                     (this.Result != null &&
                     this.Result.Equals(input.Result))
+                ) && 
+                (
+                    this.Progress == input.Progress ||
+                    (this.Progress != null &&
+                    this.Progress.Equals(input.Progress))
                 );
         }
 
@@ -178,6 +193,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Result != null)
                     hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.Progress != null)
+                    hashCode = hashCode * 59 + this.Progress.GetHashCode();
                 return hashCode;
             }
         }

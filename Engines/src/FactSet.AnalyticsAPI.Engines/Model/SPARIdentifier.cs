@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -45,15 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARIdentifier(string id = default(string), string returntype = default(string), string prefix = default(string))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new InvalidDataException("id is a required property for SPARIdentifier and cannot be null");
-            }
-            else
-            {
-                this.Id = id;
-            }
-
+            this.Id = id ?? throw new ArgumentNullException("id is a required property for SPARIdentifier and cannot be null");
             this.Returntype = returntype;
             this.Prefix = prefix;
         }

@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -44,15 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PubDateParameters(string startdate = default(string), string enddate = default(string))
         {
             // to ensure "enddate" is required (not null)
-            if (enddate == null)
-            {
-                throw new InvalidDataException("enddate is a required property for PubDateParameters and cannot be null");
-            }
-            else
-            {
-                this.Enddate = enddate;
-            }
-
+            this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for PubDateParameters and cannot be null");
             this.Startdate = startdate;
         }
         
