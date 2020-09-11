@@ -15,6 +15,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2
+        source-url: https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_API}}
     
     - name: Install dependencies
       run: cd Engines && dotnet restore
@@ -22,11 +25,8 @@ jobs:
     - name: Build
       run: cd Engines && dotnet build --configuration Release --no-restore
       
-    - name: Publish
-      run: cd Engines && dotnet publish
+    - name: Create the package
+      run: dotnet pack --configuration Release Engines/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: FactSet.AnalyticsAPI.Engines
-        path: Engines/src/FactSet.AnalyticsAPI.Engines/bin/Debug/netstandard2.0/publish/
+    - name: Publish the package to Nuget
+      run: dotnet nuget push Engines/src/FactSet.AnalyticsAPI.Engines/bin/Release/*.nupkg
