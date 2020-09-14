@@ -1,5 +1,8 @@
 name: Release
 
+env:
+  NUGET_API: ${{ secrets.NUGET_API }}
+
 on:
   release:
     types: [ published ]
@@ -17,7 +20,7 @@ jobs:
         dotnet-version: 2.2
         source-url: https://api.nuget.org/v3/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_API}}
+        NUGET_AUTH_TOKEN: ${{ env.NUGET_API }}
     
     - name: Install dependencies
       run: cd Engines && dotnet restore
@@ -29,4 +32,4 @@ jobs:
       run: dotnet pack --configuration Release Engines/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
     - name: Publish the package to Nuget
-      run: dotnet nuget push Engines/src/FactSet.AnalyticsAPI.Engines/bin/Release/*.nupkg
+      run: dotnet nuget push Engines/src/FactSet.AnalyticsAPI.Engines/bin/Release/${GITHUB_REF}.nupkg
