@@ -14,6 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Setup Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-api-key: ${{ env.NUGET_API }}
+        nuget-version: '5.x'
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -23,13 +29,10 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ env.NUGET_API }}
     
     - name: Install dependencies
-      run: cd Engines && dotnet restore
+      run: nuget restore Engines/FactSet.AnalyticsAPI.Engines.sln
       
-    - name: Build
-      run: cd Engines && dotnet build --configuration Release --no-restore
-      
-    - name: Create the package
-      run: dotnet pack --configuration Release Engines/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+    - name: Build and create the package
+      run: nuget pack -Build Engines/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
     - name: Publish the package to Nuget
-      run: dotnet nuget push Engines/src/FactSet.AnalyticsAPI.Engines/bin/Release/${GITHUB_REF}.nupkg
+      run: dotnet nuget push FactSet.AnalyticsAPI.Engines.${GITHUB_REF}.nupkg
