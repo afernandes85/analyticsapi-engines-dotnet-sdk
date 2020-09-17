@@ -29,10 +29,10 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ env.NUGET_API }}
     
     - name: Install dependencies
-      run: nuget restore Engines/FactSet.AnalyticsAPI.Engines.sln
+      run: nuget restore auto-generated-sdk/FactSet.AnalyticsAPI.Engines.sln
       
     - name: Build and create the package
-      run: nuget pack -Build Engines/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+      run: nuget pack -Build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
     - name: Publish the package to Nuget
       run: dotnet nuget push FactSet.AnalyticsAPI.Engines.${GITHUB_REF}.nupkg
