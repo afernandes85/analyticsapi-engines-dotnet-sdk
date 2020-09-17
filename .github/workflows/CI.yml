@@ -23,14 +23,14 @@ jobs:
         dotnet-version: 2.2
     
     - name: Build new SDK
-      run: cd Engines && dotnet build --configuration Release
+      run: cd auto-generated-sdk && dotnet build --configuration Release
         
     - name: Build Tests
-      run: cd Tests && dotnet build --configuration Release
+      run: cd tests && dotnet build --configuration Release
 
     - name: Run Tests
       run: echo "Tests ran successfully" 
-      # run: cd Tests && dotnet test --no-restore --verbosity normal
+      # run: cd tests && dotnet test --no-restore --verbosity normal
 
     - name: Build Examples
-      run: cd Examples && dotnet build --configuration Release
+      run: cd examples && dotnet build --configuration Release
