@@ -47,13 +47,12 @@ Use this library to integrate with FactSet's Analytics APIs. Below APIs are supp
 
   ```sh
   git clone https://github.com/afernandes85/analyticsapi-engines-dotnet-sdk.git
-  cd Engines
-  dotnet build FactSet.AnalyticsAPI.Engines
+  dotnet build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines
   ```
 
 ## Usage
 
-Refer [Examples](Examples) project for sample code snippets to quickly get started with the SDK
+Refer [examples](examples) project for sample code snippets to quickly get started with the SDK
 
 ## Tests
 
