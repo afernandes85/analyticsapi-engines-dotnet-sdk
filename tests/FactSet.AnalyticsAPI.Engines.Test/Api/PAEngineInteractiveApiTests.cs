@@ -23,8 +23,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new PACalculationsApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new PACalculationsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
         }
 
         private ApiResponse<object> RunCalculation()
@@ -34,7 +34,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var paComponentId = paComponents.Data.Keys.First();
             var paAccountIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkR1000);
+            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50PF);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);

@@ -121,55 +121,5 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             return _engineApiConfiguration;
         }
-
-        private static SPARCalculationParameters GetSparCalculationParameters()
-        {
-            // Build SPAR Engine calculation parameters
-            var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
-
-            var componentsResponse = componentsApi.GetSPARComponentsWithHttpInfo(SPARDefaultDocument);
-
-            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
-            Console.WriteLine($"SPAR Component Id : {sparComponentId}");
-            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
-            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
-
-            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
-
-            return sparCalculation;
-        }
-
-        private static void PrintResult(KeyValuePair<string, CalculationUnitStatus> calculation)
-        {
-            if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
-            {
-                var utilityApi = new UtilityApi(GetEngineApiConfiguration());
-                ApiResponse<string> resultResponse = utilityApi.GetByUrlWithHttpInfo(calculation.Value.Result);
-
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Succeeded!!!");
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Result");
-                Console.WriteLine("/****************************************************************/");
-
-                // converting the data to Package object
-                var jpSettings = JsonParser.Settings.Default;
-                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
-                var package = jp.Parse<Package>(resultResponse.Data);
-
-                // To convert package to 2D tables.
-                var tables = package.ConvertToTableFormat();
-                Console.WriteLine(tables[0]);
-
-                Console.WriteLine("/****************************************************************/");
-            }
-        }
-
-        private static void LogError<T>(ApiResponse<T> response, string message)
-        {
-            Console.WriteLine(message);
-            Console.WriteLine("Status Code: " + response.StatusCode);
-            Console.WriteLine("Request Key: " + response.Headers["X-DataDirect-Request-Key"]);
-            Console.WriteLine($"Reason: {response.Data}");
-        }
     }
 }

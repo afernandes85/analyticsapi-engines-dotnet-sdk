@@ -23,9 +23,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new VaultCalculationsApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
-            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new VaultCalculationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
         }
 
         private ApiResponse<object> RunCalculation()

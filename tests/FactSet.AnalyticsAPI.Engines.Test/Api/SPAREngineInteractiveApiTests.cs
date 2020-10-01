@@ -23,8 +23,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new SPARCalculationsApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new SPARCalculationsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
         }
 
         private ApiResponse<object> RunCalculation()
@@ -33,7 +33,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var sparComponentId = sparComponents.Data.Keys.First();
             var sparAccountIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkRussellPR2000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnTypeP, CommonParameters.SPARBenchmarkRussellPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 

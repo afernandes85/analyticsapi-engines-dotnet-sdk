@@ -20,8 +20,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration());
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.PUB));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.PUB));
         }
 
         private ApiResponse<object> RunCalculation()
