@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FactSet.Protobuf.Stach" Version="1.0.1" />
-    <PackageReference Include="Google.Protobuf" Version="3.5.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.15.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
