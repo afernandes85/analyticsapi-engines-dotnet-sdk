@@ -33,7 +33,7 @@ Contact: analytics.api.support@factset.com
 
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.5.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
     <PackageReference Include="FactSet.Protobuf.Stach" Version="1.0.1" />
